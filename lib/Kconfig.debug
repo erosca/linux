@@ -2105,6 +2105,19 @@ config TEST_DEBUG_VIRTUAL
 
 	  If unsure, say N.
 
+config STRESS_SERIAL
+	tristate "Serial console load generator"
+	default m
+	depends on m
+	help
+	  Blindly and continuously printk from hrtimer callback context
+	  to stress the serial console. Combined with other stressors,
+	  this can, for instance, emulate the conditions undergone by
+	  the serial console during the early system startup.
+
+	  If unsure, say N.
+	  If enabled, the module will be called stress-serial.
+
 config TEST_MEMCAT_P
 	tristate "Test memcat_p() helper function"
 	help
